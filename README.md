@@ -70,3 +70,13 @@ Static HTML and CSS has been created for most of the site and is located in: `/d
 For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
 
 And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
+
+## Manual Testing
+
+Follow these steps to verify that authenticated routes work correctly:
+
+1. Start the server with `npm run dev:server` and make sure the database is populated using `npm run populate-db`.
+2. Send a `POST` request to `/api/v1/user/login` with one of the sample user credentials to obtain a JWT token.
+3. Use the returned token in the `Authorization` header (e.g. `Bearer YOUR_TOKEN`) and call `/api/v1/user/profile`.
+   You should receive the user profile data as the response.
+4. You can also update the user profile by sending a `PUT` request to `/api/v1/user/profile` with the token and the updated fields.
