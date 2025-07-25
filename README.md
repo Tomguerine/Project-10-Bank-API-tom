@@ -39,7 +39,7 @@ npm run dev:server
 npm run populate-db
 ```
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+Your server should now be running at http://localhost:3001 and you will now have two users in your MongoDB database!
 
 ## Populated Database Data
 
@@ -69,7 +69,7 @@ Static HTML and CSS has been created for most of the site and is located in: `/d
 
 For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
 
-And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
+And for the API model that you will be proposing for transactions, the wireframe can be found in `/designs/wireframes/transactions.png`.
 
 ## Manual Testing
 
