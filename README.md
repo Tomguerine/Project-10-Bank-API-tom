@@ -39,7 +39,7 @@ npm run dev:server
 npm run populate-db
 ```
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+Your server should now be running at http://localhost:3001 and you will now have two users in your MongoDB database!
 
 ## Populated Database Data
 
@@ -80,3 +80,15 @@ Follow these steps to verify that authenticated routes work correctly:
 3. Use the returned token in the `Authorization` header (e.g. `Bearer YOUR_TOKEN`) and call `/api/v1/user/profile`.
    You should receive the user profile data as the response.
 4. You can also update the user profile by sending a `PUT` request to `/api/v1/user/profile` with the token and the updated fields.
+
+## React Application
+
+The frontend for Argent Bank is built with React. After starting the API server you can launch the React development server in a separate terminal:
+
+```bash
+# Inside the React project directory
+npm install
+npm start
+```
+
+The application expects the API to be running on `http://localhost:3001` and communicates with it for all user authentication and profile data.
