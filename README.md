@@ -26,6 +26,7 @@ mongo --version
 1. Fork this repo
 1. Clone the repo onto your computer
 1. Open a terminal window in the cloned project
+1. Copy `.env.example` to `.env` and update the values if needed
 1. Run the following commands:
 
 ```bash
