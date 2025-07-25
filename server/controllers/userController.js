@@ -27,7 +27,7 @@ module.exports.loginUser = async (req, res) => {
     response.body = responseFromService
   } catch (error) {
     console.error('Error in loginUser (userController.js)')
-    response.status = 400
+    response.status = 401
     response.message = error.message
   }
 
