@@ -66,7 +66,7 @@ describe('User routes', () => {
       .post('/api/v1/user/profile')
       .set('Authorization', 'Bearer invalidtoken')
       .expect(401)
-    expect(res.body.message).toBeDefined()
+    expect(res.body.message).toMatch(/Token is missing/)
   })
 
   test('update profile missing token', async () => {
@@ -83,6 +83,6 @@ describe('User routes', () => {
       .set('Authorization', 'Bearer badtoken')
       .send({ firstName: 'A', lastName: 'B' })
       .expect(401)
-    expect(res.body.message).toBeDefined()
+    expect(res.body.message).toMatch(/Token is missing/)
   })
 })

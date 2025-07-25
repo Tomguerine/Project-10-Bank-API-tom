@@ -6,21 +6,21 @@ module.exports.validateToken = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization
     if (!authHeader) {
-      throw new Error('Authorization header missing')
+      throw new Error('Token is missing')
     }
 
     if (!authHeader.startsWith('Bearer ')) {
-      throw new Error('Authorization header must start with "Bearer "')
+      throw new Error('Token is missing')
     }
 
     const tokenParts = authHeader.split('Bearer ')
     if (!tokenParts[1]) {
-      throw new Error('Token not provided')
+      throw new Error('Token is missing')
     }
 
     const userToken = tokenParts[1].trim()
     if (!userToken) {
-      throw new Error('Token not provided')
+      throw new Error('Token is missing')
     }
 
     const decodedToken = jwt.verify(
@@ -32,7 +32,7 @@ module.exports.validateToken = (req, res, next) => {
   } catch (error) {
     console.error('Error in tokenValidation.js', error)
     response.status = 401
-    response.message = error.message
+    response.message = 'Token is missing'
   }
 
   return res.status(response.status).send(response)
