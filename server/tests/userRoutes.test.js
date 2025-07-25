@@ -37,6 +37,20 @@ describe('User routes', () => {
     token = res.body.body.token
   })
 
+  test('login with wrong password fails', async () => {
+    await request(app)
+      .post('/api/v1/user/login')
+      .send({ email: 'test@example.com', password: 'wrongpass' })
+      .expect(401)
+  })
+
+  test('login with unknown email fails', async () => {
+    await request(app)
+      .post('/api/v1/user/login')
+      .send({ email: 'nouser@example.com', password: 'pass123' })
+      .expect(401)
+  })
+
   test('get profile with valid token', async () => {
     const res = await request(app)
       .post('/api/v1/user/profile')
