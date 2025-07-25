@@ -4,11 +4,25 @@ module.exports.validateToken = (req, res, next) => {
   let response = {}
 
   try {
-    if (!req.headers.authorization) {
-      throw new Error('Token is missing from header')
+    const authHeader = req.headers.authorization
+    if (!authHeader) {
+      throw new Error('Authorization header missing')
     }
 
-    const userToken = req.headers.authorization.split('Bearer')[1].trim()
+    if (!authHeader.startsWith('Bearer ')) {
+      throw new Error('Authorization header must start with "Bearer "')
+    }
+
+    const tokenParts = authHeader.split('Bearer ')
+    if (!tokenParts[1]) {
+      throw new Error('Token not provided')
+    }
+
+    const userToken = tokenParts[1].trim()
+    if (!userToken) {
+      throw new Error('Token not provided')
+    }
+
     const decodedToken = jwt.verify(
       userToken,
       process.env.SECRET_KEY || 'default-secret-key'
