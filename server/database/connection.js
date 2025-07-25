@@ -11,6 +11,6 @@ module.exports = async () => {
     console.log('Database successfully connected')
   } catch (error) {
     console.error(`Database Connectivity Error: ${error}`)
-    throw new Error(error)
+    throw error
   }
 }

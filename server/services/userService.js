@@ -23,7 +23,7 @@ module.exports.createUser = async serviceData => {
     return result
   } catch (error) {
     console.error('Error in userService.js', error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -38,7 +38,7 @@ module.exports.getUserProfile = async serviceData => {
     return user.toObject()
   } catch (error) {
     console.error('Error in userService.js', error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -65,7 +65,7 @@ module.exports.loginUser = async serviceData => {
     return { token }
   } catch (error) {
     console.error('Error in userService.js', error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -87,6 +87,6 @@ module.exports.updateUserProfile = async serviceData => {
     return user.toObject()
   } catch (error) {
     console.error('Error in userService.js', error)
-    throw new Error(error)
+    throw error
   }
 }
