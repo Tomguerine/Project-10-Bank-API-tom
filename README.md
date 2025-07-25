@@ -26,6 +26,7 @@ mongo --version
 1. Fork this repo
 1. Clone the repo onto your computer
 1. Open a terminal window in the cloned project
+1. Edit the `.env` file and set a value for `SECRET_KEY`
 1. Run the following commands:
 
 ```bash
