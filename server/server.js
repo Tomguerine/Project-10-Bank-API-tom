@@ -11,8 +11,17 @@ dotEnv.config()
 const app = express()
 const PORT = process.env.PORT || 3001
 
-// Connect to the database
-dbConnection()
+const startServer = async () => {
+  try {
+    await dbConnection()
+    app.listen(PORT, () => {
+      console.log(`Server listening on http://localhost:${PORT}`)
+    })
+  } catch (error) {
+    console.error('Failed to connect to the database', error)
+    process.exit(1)
+  }
+}
 
 // Handle CORS issues
 app.use(cors())
@@ -34,9 +43,7 @@ app.get('/', (req, res, next) => {
 })
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`)
-  })
+  startServer()
 }
-
 module.exports = app
+module.exports.startServer = startServer
