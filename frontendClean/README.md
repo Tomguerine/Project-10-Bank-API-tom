@@ -1,4 +1,4 @@
-# My React App
+# frontendClean
 
 This project is a React front‑end configured with [Vite](https://vitejs.dev/). It expects a backend API reachable by default at `http://localhost:3000`.
 
@@ -8,13 +8,13 @@ Install packages from the repository root and inside the app directory:
 
 ```bash
 npm install
-cd my-react-app && npm install
+cd frontendClean && npm install
 ```
 
 
 ## Setting environment variables
 
-Create a `.env` file in `my-react-app` to configure API access:
+Create a `.env` file in `frontendClean` to configure API access:
 
 ```env
 VITE_API_URL=http://localhost:3000
@@ -26,8 +26,7 @@ VITE_USE_MOCKS=false
 Start the backend API on `VITE_API_URL` (for example using `npm start` in your backend project) then run the Vite dev server:
 
 ```bash
-cd my-react-app
-npm run dev
+cd frontendClean && npm run dev
 ```
 
 Set `VITE_USE_MOCKS=true` in the `.env` file if you want to work without the
