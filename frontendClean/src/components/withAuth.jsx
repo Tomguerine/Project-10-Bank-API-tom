@@ -10,15 +10,14 @@ import { Navigate } from 'react-router-dom';
  *   const ProtectedPage = withAuth(MyComponent);
  */
 const withAuth = (WrappedComponent) => {
-  const RequiresAuth = (props) => {
-    const token = useSelector((state) => state.auth && state.auth.token);
+  const Component = WrappedComponent;
+  return (props) => {
+    const token = useSelector((state) => state.auth.token);
     if (!token) {
       return <Navigate to="/login" replace />;
     }
-    return <WrappedComponent {...props} />;
+    return <Component {...props} />;
   };
-
-  return RequiresAuth;
 };
 
 export default withAuth;
