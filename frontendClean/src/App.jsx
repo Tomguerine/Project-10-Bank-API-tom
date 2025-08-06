@@ -13,7 +13,8 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/profile" element={<ProtectedUserPage />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/user" element={<UserPage />} />
+      <Route path="*" eement={<NotFound />} />
     </Routes>
   );
 }
