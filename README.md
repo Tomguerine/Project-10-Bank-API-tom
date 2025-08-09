@@ -21,6 +21,19 @@ node --version
 mongo --version
 ```
 
+### Database Setup
+
+You need a running MongoDB instance before starting the server. You can either:
+
+1. **Install MongoDB** by following the [MongoDB Community Server installation guide](https://www.mongodb.com/try/download/community).
+2. **Run MongoDB with Docker:**
+
+   ```bash
+   docker run -p 27017:27017 mongo
+   ```
+
+By default, the server expects the database at `mongodb://localhost/argentBankDB`. You can override this by setting the `DATABASE_URL` environment variable.
+
 ### Instructions
 
 1. Fork this repo
